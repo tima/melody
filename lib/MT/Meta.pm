@@ -33,6 +33,10 @@ our $REPLACE_ENABLED = 0;
 
 our ( %Types, %TypesByName );
 
+# need this here so stop Module::Metainfo from getting tripped up 
+# on later $VERSION use.
+our $VERSION = 0;  
+
 BEGIN {
     %Types = (
                TYPE_VCHAR()             => "vchar",

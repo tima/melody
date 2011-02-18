@@ -11,6 +11,10 @@ package MT::Revisable::Local;
 use strict;
 use base 'MT::ErrorHandler';
 
+# need this here so stop Module::Metainfo from getting tripped up 
+# on later $VERSION use.
+our $VERSION = 0;
+
 sub revision_pkg {
     my $driver  = shift;
     my ($class) = @_;
