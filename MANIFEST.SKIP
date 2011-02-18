@@ -61,6 +61,11 @@ lib/MT/Util/LogProcessor
 ^MANIFEST
 Makefile
 Makefile.PL
+Build.PL
+Build
+META.yml
+MYMETA.yml
+extlib.yaml
 ^_build
 ^build
 ^Build.*$
