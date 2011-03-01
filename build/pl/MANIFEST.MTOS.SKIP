@@ -1,0 +1,87 @@
+
+# MT::App::Viewer
+lib/MT/App/Viewer.pm
+view.cgi
+
+# Currently non-shipping tools
+testbg.cgi
+tools/convert-db
+tools/mt-tmpl-preview
+tools/remove-object
+tools/find-junk
+tools/mt-tmpl-test
+tools/plugin-config
+tools/rebuild-pages
+tools/pl-viewer
+tools/sig-validate
+tools/write-default-templates
+
+# performance testing tools to bring back eventually
+tools/report-slow-request
+tools/rebuild-benchmark
+
+# Experimental FileMgr Drivers from MTOS code
+lib/MT/FileMgr/FTP.pm
+lib/MT/FileMgr/SFTP.pm
+lib/MT/FileMgr/DAV.pm
+
+# Unnecessary jquery libraries
+addons/ThemeManager.plugin/static/js/jquery-1.4.2.min.js
+addons/ConfigAssistant.pack/static/colorpicker/js/jquery.js
+
+# Performance Log Processing
+# Removing until DateTime dependency can be reviewed
+tools/report-slow-request
+lib/MT/Util/LogProcessor
+
+^schemas
+^\.prove
+\.ERR$
+
+# Plugins that aren't to be in the general release
+plugins/mixiComment
+plugins/Revolution
+plugins/CustomCSS
+mt-static/plugins/
+mt-static/support/plugins
+
+# Themes that aren't to be in the general release
+mt-static/themes/cityscape-austin
+mt-static/themes/cityscape-boston
+mt-static/themes/cityscape-chicago
+mt-static/themes/cityscape-dc
+mt-static/themes/cityscape-houston
+mt-static/themes/cityscape-kiev
+mt-static/themes/cityscape-la
+mt-static/themes/cityscape-london
+mt-static/themes/cityscape-miami
+mt-static/themes/cityscape-nashville
+mt-static/themes/cityscape-nyc
+mt-static/themes/cityscape-paris
+mt-static/themes/cityscape-philadelphia
+mt-static/themes/cityscape-seattle
+#mt-static/themes/cityscape-sf
+mt-static/themes/cityscape-sydney
+mt-static/themes/cityscape-tokyo
+mt-static/themes/cityscape-toronto
+mt-static/themes/cityscape-vegas
+mt-static/themes/hills-dusk
+mt-static/themes/hills-green
+mt-static/themes/hills-midnight
+mt-static/themes/hills-pink
+mt-static/themes/minimalist-blue
+mt-static/themes/minimalist-brown
+mt-static/themes/minimalist-green
+mt-static/themes/minimalist-grey
+mt-static/themes/minimalist-light-blue
+mt-static/themes/minimalist-light-green
+mt-static/themes/minimalist-pink
+mt-static/themes/minimalist-purple
+#mt-static/themes/minimalist-red
+mt-static/themes/minimalist-white
+mt-static/themes/mt-static/themes/cityscape-portland
+#mt-static/themes/unity-blue
+mt-static/themes/unity-green
+mt-static/themes/unity-purple
+mt-static/themes/unity-tricolor
+

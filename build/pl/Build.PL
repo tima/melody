@@ -2,13 +2,14 @@
 use strict;
 use warnings;
 
-use lib 'lib';
-use lib 'extlib';
+# Use MT__HOME eventually
+use lib '../../../lib';
+use lib '../../../extlib';
 
 use Module::Build; 
 use YAML::Tiny;
 
-my $extlib = YAML::Tiny->read( 'extlib.yaml' );
+my $extlib = YAML::Tiny->read( '../extlib.yaml' ); # This needs to be packaged differently.
 
 # merge requires_noxs and requires_xs ued to generate extlib bundle
 my $requires = {};
@@ -26,11 +27,11 @@ my $build = Module::Build->new(
     build_class => 'Module::Build',
     build_requires => $build_requires, 
     # create_license => '', # handy eventually. requires Software::License
-    # create_readme => '', # also handy eventuall. need to coordinate 
+    # create_readme => '', # also handy eventually. need to coordinate 
     dist_abstract => 'Melody is an open source content management, blogging and publishing platform, derived from the popular blogging tool Movable Type.',
     dist_author => 'Open Melody Software Group <admin@openmelody.org>', 
     dist_name => 'Melody',
-    dist_version_from => 'lib/MT.pm',
+    dist_version_from => '../../../lib/MT.pm',
     license     => 'gpl',
     recommends  => $recommends, 
     requires    => $requires, 
