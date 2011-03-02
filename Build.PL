@@ -2,21 +2,22 @@
 use strict;
 use warnings;
 
-# Use MT__HOME eventually
-use lib '../../../lib';
-use lib '../../../extlib';
+use lib 'lib';
+use lib 'extlib';
 
 use Module::Build; 
 use YAML::Tiny;
-
-my $extlib = YAML::Tiny->read( '../extlib.yaml' ); # This needs to be packaged differently.
+use ExtUtils::Manifest qw(mkmanifest);
+use File::Copy;
+    
+my $extlib = YAML::Tiny->read('dist/extlib.yaml'); # This needs to be packaged differently.
 
 # merge requires_noxs and requires_xs ued to generate extlib bundle
 my $requires = {};
 my $recommends = $extlib->[0]->{'recommends'};
 my $build_requires = $extlib->[0]->{'build'};
 
-# merge requires_noxs and requires_xs ued to generate extlib bundle
+# merge requires_noxs and requires_xs used to generate extlib bundle
 for my $x ($extlib->[0]->{'requires_noxs'}, $extlib->[0]->{'requires_xs'}) {
     for my $key (keys %$x) {
         $requires->{$key} = $x->{$key};
@@ -26,14 +27,19 @@ for my $x ($extlib->[0]->{'requires_noxs'}, $extlib->[0]->{'requires_xs'}) {
 my $build = Module::Build->new(
     build_class => 'Module::Build',
     build_requires => $build_requires, 
+    configure_requires  => { 'Module::Build' => 0.36 },
     # create_license => '', # handy eventually. requires Software::License
     # create_readme => '', # also handy eventually. need to coordinate 
     dist_abstract => 'Melody is an open source content management, blogging and publishing platform, derived from the popular blogging tool Movable Type.',
     dist_author => 'Open Melody Software Group <admin@openmelody.org>', 
     dist_name => 'Melody',
-    dist_version_from => '../../../lib/MT.pm',
+    dist_version_from => 'lib/MT.pm',
     license     => 'gpl',
     recommends  => $recommends, 
     requires    => $requires, 
 );
+copy ('dist/MANIFEST.DEV.SKIP','MANIFEST.SKIP'); # needs to be a param
+mkmanifest();
+$build->add_to_cleanup('MANIFEST.SKIP','MANIFEST','MANIFEST.bak','MANIFEST.SKIP.bak','META.yml');
 $build->create_build_script;
+

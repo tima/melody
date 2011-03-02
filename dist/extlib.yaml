@@ -1,6 +1,8 @@
 ---
 build:
   Devel::Cover: 0
+  File::chdir: 0.10
+  Module::Build: 0.36
   Scalar::Util: 0
   Test::Class: 0
   Test::Deep: 0

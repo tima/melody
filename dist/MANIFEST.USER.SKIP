@@ -1,0 +1,9 @@
+
+#!include dist/MANIFEST.BASE.SKIP
+#!include dist/MANIFEST.MTOS.SKIP
+
+^t/
+.*/t/
+^build/
+^dist/
+
