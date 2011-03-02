@@ -11,6 +11,7 @@
 .*
 !.gitignore
 !.perltidyrc
+!.shipit
 *#
 *~
 *.[Oo][Ll][Dd]

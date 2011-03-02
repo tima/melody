@@ -1,0 +1,9 @@
+# auto-generated shipit config file.
+# steps = FindVersion, ChangeVersion, DistTest, Commit, Tag, MakeDist
+
+steps = FindVersion, DistTest, MakeDist
+
+# svn.tagpattern = MyProj-%v
+# svn.tagpattern = http://code.example.com/svn/tags/MyProj-%v
+
+# CheckChangeLog.files = ChangeLog, MyProj.CHANGES
